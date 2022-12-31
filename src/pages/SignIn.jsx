@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, Navigate, redirect } from "react-router-dom";
 import Auth from "../layout/Auth";
 import { supabase } from "../lib/client";
 
@@ -9,7 +9,7 @@ export default function SignIn({ setToken }) {
     email: "",
     password: "",
   });
-  console.log(formData, "ini from dari sign");
+  // console.log(formData, "ini from dari sign");
   function handleChange(e) {
     setFormData((prevFormData) => {
       return {
@@ -29,14 +29,19 @@ export default function SignIn({ setToken }) {
 
       if (error) throw error;
       setToken(data);
-      navigate("/home");
 
-      console.log(data, "ini dari login");
+      navigate("/home");
+      // sessionStorage.removeItem("token");
+
+      // console.log(data, "ini dari login");
       // alert("verifikasi email kamu");
     } catch (error) {
       alert(error);
     }
   }
+  useEffect(() => {
+    sessionStorage.removeItem("token");
+  }, []);
   return (
     <Auth>
       <h3 className="mb-4 text-xl bg-gradient-to-br from-teal-accent-400 to-black  text-transparent bg-clip-text font-semibold sm:text-center sm:mb-6 sm:text-2xl">Sign In </h3>

@@ -39,7 +39,7 @@ export default function SignUp() {
   }
   return (
     <Auth>
-      <h3 className="bg-gradient-to-br from-teal-accent-400 to-black  text-transparent bg-clip-text mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">Sign up for updates</h3>
+      <h3 className="bg-gradient-to-br from-teal-accent-400 to-black  text-transparent bg-clip-text mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">Sign up</h3>
       <form onSubmit={handleSubmit} method="post">
         <div className="mb-1 sm:mb-2">
           <label htmlFor="name" className="inline-block mb-1 font-medium">
