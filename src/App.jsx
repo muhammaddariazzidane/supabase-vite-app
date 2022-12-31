@@ -16,6 +16,7 @@ export default function App() {
     if (sessionStorage.getItem("token")) {
       let data = JSON.parse(sessionStorage.getItem("token"));
       setToken(data);
+      sessionStorage.removeItem("token");
       // console.log(token.session.access_token, "dari apps");
     }
   }, []);
@@ -25,8 +26,9 @@ export default function App() {
       <Routes>
         <Route path={"/signin"} element={<SignIn setToken={setToken} />} />
         {/* <Route path={"/home"} element={<SignIn setToken={setToken} />} /> */}
-        <Route path={"/"} element={token ? <Navigate to={"/home"} token={token} /> : <Navigate to={"/signin"} replace />} />
-        <Route path={"/signup"} element={token ? <Navigate to={"/"} replace /> : <SignUp replace />} />
+        <Route path={"/"} element={<Navigate to={"/signin"} replace />} />
+        {/* <Route path={"/"} element={token ? <Navigate to={"/home"} token={token} /> : <Navigate to={"/signin"} replace />} /> */}
+        <Route path={"/signup"} element={<SignUp />} />
         <Route path={"/home"} element={token ? <HomePage token={token} replace /> : <Navigate to={"/signin"} replace />} />
         {/* {token ? (
           <>

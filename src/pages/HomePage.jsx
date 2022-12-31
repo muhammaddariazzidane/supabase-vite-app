@@ -6,7 +6,7 @@ export default function HomePage({ token }) {
   let navigate = useNavigate();
   function handleLogout() {
     sessionStorage.removeItem("token");
-    confirm("yakin mau keluar?");
+    // confirm("yakin mau keluar?");
 
     // <Route path={"/home"} element={<Navigate to="/" replace={true} />} />;
 

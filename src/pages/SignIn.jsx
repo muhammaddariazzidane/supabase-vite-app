@@ -39,9 +39,7 @@ export default function SignIn({ setToken }) {
       alert(error);
     }
   }
-  useEffect(() => {
-    sessionStorage.removeItem("token");
-  }, []);
+
   return (
     <Auth>
       <h3 className="mb-4 text-xl bg-gradient-to-br from-teal-accent-400 to-black  text-transparent bg-clip-text font-semibold sm:text-center sm:mb-6 sm:text-2xl">Sign In </h3>
